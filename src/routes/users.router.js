@@ -1,6 +1,6 @@
 import {Router} from "express";
 import bcrypt from "bcrypt";
-import UserModel from "../models/User";
+import UserModel from "../models/User.js";
 
 /**
  * @swagger

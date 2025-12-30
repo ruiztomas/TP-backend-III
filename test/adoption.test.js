@@ -1,12 +1,12 @@
-import chai from "chai";
+import {expect} from "chai";
 import supertest from "supertest";
+import app from "../src/app.js";
 import mongoose from "mongoose";
 import UserModel from "../src/models/User.js";
 import PetModel from "../src/models/Pet.js";
 import AdoptionModel from "../src/models/Adoption.js";
 
-const expect=chai.expect;
-const requester=supertest("http://localhost:8080");
+const requester=supertest(app);
 
 describe("Tests funcionales - Adoptions",function(){
   let userId;
@@ -20,7 +20,8 @@ describe("Tests funcionales - Adoptions",function(){
       first_name:"Test",
       last_name:"User",
       email:"testuser@test.com",
-      password:"1234"
+      password:"1234",
+      role:"user"
     });
 
     const pet=await PetModel.create({
